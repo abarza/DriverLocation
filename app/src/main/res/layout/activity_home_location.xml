@@ -7,14 +7,17 @@
     android:layout_height="match_parent"
     tools:context="com.beetrack.test.abarza.driverlocation.HomeLocation">
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
-        android:layout_width="match_parent"
-        android:layout_height="?attr/actionBarSize"
-        android:background="?attr/colorPrimary"
-        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+  <FrameLayout
+      android:id="@+id/launch"
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"/>
 
-  <include layout="@layout/location_content"/>
+  <android.support.v7.widget.Toolbar
+      android:id="@+id/toolbar"
+      android:layout_width="match_parent"
+      android:layout_height="?attr/actionBarSize"
+      android:background="?attr/colorPrimary"
+      app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
 
 
 </android.support.design.widget.CoordinatorLayout>
