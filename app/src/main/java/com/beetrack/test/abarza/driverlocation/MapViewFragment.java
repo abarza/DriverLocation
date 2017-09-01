@@ -1,35 +1,30 @@
 package com.beetrack.test.abarza.driverlocation;
 
 
-import android.Manifest;
-import android.content.pm.PackageManager;
-import android.content.res.Resources;
 import android.graphics.drawable.AnimationDrawable;
 import android.os.Bundle;
-import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
-import android.util.Log;
+import android.support.v4.content.ContextCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.MapView;
-import com.google.android.gms.maps.MapsInitializer;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MapStyleOptions;
-import com.google.android.gms.maps.model.MarkerOptions;
 
 
 public class MapViewFragment extends Fragment implements OnMapReadyCallback {
   private final static String TAG = MapViewFragment.class.getSimpleName();
   private SupportMapFragment mSupportMapFragment;
+  private final Boolean darkMode = false;
 
   public MapViewFragment() {
     // Required empty public constructor
@@ -65,6 +60,13 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     ImageView animatedImageView = (ImageView) rootView.findViewById(R.id.animatedMarker);
     ((AnimationDrawable) animatedImageView.getBackground()).start();
 
+    TextView title = (TextView) rootView.findViewById(R.id.title);
+    if(!darkMode) {
+      title.setTextColor(ContextCompat.getColor(getContext(), R.color.darkMap));
+      title.setShadowLayer(0.01f, -2, 2,   ContextCompat.getColor(getContext(), R.color.white));
+
+    }
+
     mSupportMapFragment.getMapAsync(this);
 
 
@@ -77,19 +79,10 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
     LatLng home = new LatLng(-33.424845, -70.615574);
 
-
-    try {
-      // Customise the styling of the base map using a JSON object defined
-      // in a raw resource file.
-      boolean success = map.setMapStyle(
-          MapStyleOptions.loadRawResourceStyle(
-              getContext(), R.raw.style_json));
-
-      if (!success) {
-        Log.e(TAG, "Style parsing failed.");
-      }
-    } catch (Resources.NotFoundException e) {
-      Log.e(TAG, "Can't find style. Error: ", e);
+    if(darkMode) {
+      setMapStyle(map, R.raw.style_dark_json);
+    } else {
+      setMapStyle(map, R.raw.style_light_json);
     }
 
     map.getUiSettings().setAllGesturesEnabled(false);
@@ -99,6 +92,12 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
     map.animateCamera(CameraUpdateFactory
         .newCameraPosition(cameraPosition));
+  }
+
+  private void setMapStyle(GoogleMap map, int json) {
+    map.setMapStyle(
+        MapStyleOptions.loadRawResourceStyle(
+            getContext(), json));
   }
 
 }
