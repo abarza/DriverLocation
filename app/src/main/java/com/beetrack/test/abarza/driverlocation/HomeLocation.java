@@ -18,6 +18,9 @@ public class HomeLocation extends AppCompatActivity {
     Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
     setSupportActionBar(toolbar);
     toolbar.getBackground().setAlpha(0);
+    if (getSupportActionBar().getTitle() != null) {
+      getSupportActionBar().setDisplayShowTitleEnabled(false);
+    }
 
     if (HAS_LOCATION_ENABLED) {
       setCurrentFragment(MapViewFragment.newInstance(), R.id.launch);
