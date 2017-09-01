@@ -11,6 +11,13 @@ android {
     versionName "1.0"
     testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     vectorDrawables.useSupportLibrary = true
+
+    def addConstant = {constantName, constantValue ->
+      manifestPlaceholders = [ (constantName):constantValue]
+      buildConfigField "String", "${constantName}", "\"${constantValue}\""
+    }
+
+    addConstant("GOOGLE_MAPS_API_KEY", GOOGLE_MAPS_API_KEY)
   }
   buildTypes {
     release {
