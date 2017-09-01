@@ -2,6 +2,7 @@ package com.beetrack.test.abarza.driverlocation;
 
 
 import android.graphics.drawable.AnimationDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -10,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
@@ -59,12 +61,17 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
     ImageView animatedImageView = (ImageView) rootView.findViewById(R.id.animatedMarker);
     ((AnimationDrawable) animatedImageView.getBackground()).start();
-
     TextView title = (TextView) rootView.findViewById(R.id.title);
+
+    RelativeLayout topShade = (RelativeLayout) rootView.findViewById(R.id.topShade);
+    RelativeLayout bottomShade = (RelativeLayout) rootView.findViewById(R.id.bottomShade);
+
+
     if(!darkMode) {
       title.setTextColor(ContextCompat.getColor(getContext(), R.color.darkMap));
-      title.setShadowLayer(0.01f, -2, 2,   ContextCompat.getColor(getContext(), R.color.white));
-
+      title.setShadowLayer(0.02f, -2, 2,   ContextCompat.getColor(getContext(), R.color.white));
+      topShade.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gradient_light_map));
+      bottomShade.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gradient_light_map_bottom));
     }
 
     mSupportMapFragment.getMapAsync(this);
@@ -77,7 +84,9 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
   @Override
   public void onMapReady(GoogleMap map) {
 
-    LatLng home = new LatLng(-33.424845, -70.615574);
+    //TODO Get the current user position
+    LatLng userLocation = new LatLng(-33.424845, -70.615574);
+
 
     if(darkMode) {
       setMapStyle(map, R.raw.style_dark_json);
@@ -88,7 +97,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     map.getUiSettings().setAllGesturesEnabled(false);
 
     CameraPosition cameraPosition = new CameraPosition.Builder()
-        .target(home).zoom(16).build();
+        .target(userLocation).zoom(16).build();
 
     map.animateCamera(CameraUpdateFactory
         .newCameraPosition(cameraPosition));

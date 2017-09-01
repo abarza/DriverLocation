@@ -5,7 +5,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/darkMap"
     tools:context="com.beetrack.test.abarza.driverlocation.MapViewFragment">
 
   <RelativeLayout
@@ -19,6 +18,66 @@
       app:layout_constraintTop_toTopOf="parent"
       app:layout_constraintVertical_bias="0.0"
       tools:ignore="UselessLeaf"/>
+
+  <RelativeLayout
+      android:id="@+id/topShade"
+      android:layout_width="0dp"
+      android:layout_height="200dp"
+      android:layout_marginBottom="8dp"
+      android:background="@drawable/gradient_map"
+      app:layout_constraintBottom_toTopOf="@+id/bottomShade"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintLeft_toLeftOf="@+id/mapHolder"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/mapHolder"
+      app:layout_constraintVertical_bias="0.0">
+
+  </RelativeLayout>
+
+  <ImageButton
+      android:id="@+id/animatedMarker"
+      android:layout_width="280dp"
+      android:layout_height="280dp"
+      android:layout_centerHorizontal="true"
+      android:layout_centerVertical="true"
+      android:layout_marginBottom="8dp"
+      android:layout_marginEnd="8dp"
+      android:layout_marginLeft="8dp"
+      android:layout_marginRight="8dp"
+      android:layout_marginStart="8dp"
+      android:layout_marginTop="8dp"
+      android:background="@drawable/animation_location"
+      android:visibility="visible"
+      app:layout_constraintBottom_toBottomOf="@+id/mapHolder"
+      app:layout_constraintHorizontal_bias="0.437"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toTopOf="@+id/mapHolder"
+      app:layout_constraintVertical_bias="0.503"
+      tools:ignore="ContentDescription"/>
+
+  <TextView
+      android:id="@+id/title"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="80dp"
+      android:layout_marginEnd="32dp"
+      android:layout_marginLeft="32dp"
+      android:layout_marginRight="32dp"
+      android:layout_marginStart="32dp"
+      android:layout_marginTop="8dp"
+      android:paddingLeft="30dp"
+      android:paddingRight="30dp"
+      android:text="@string/map_need_location"
+      android:textAlignment="center"
+      android:textColor="@color/white"
+      android:textSize="24sp"
+      android:typeface="normal"
+      app:layout_constraintBottom_toBottomOf="@+id/mapHolder"
+      app:layout_constraintLeft_toLeftOf="@+id/mapHolder"
+      app:layout_constraintRight_toRightOf="@+id/mapHolder"
+      app:layout_constraintTop_toTopOf="@+id/topShade"
+      app:layout_constraintVertical_bias="0.256"/>
 
   <RelativeLayout
       android:id="@+id/bottomShade"
@@ -68,65 +127,5 @@
         android:textColor="@color/white"/>
 
   </RelativeLayout>
-
-  <RelativeLayout
-      android:id="@+id/topShade"
-      android:layout_width="0dp"
-      android:layout_height="150dp"
-      android:layout_marginBottom="8dp"
-      android:background="@drawable/gradient_map"
-      app:layout_constraintBottom_toTopOf="@+id/bottomShade"
-      app:layout_constraintHorizontal_bias="0.0"
-      app:layout_constraintLeft_toLeftOf="@+id/mapHolder"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/mapHolder"
-      app:layout_constraintVertical_bias="0.0">
-
-  </RelativeLayout>
-
-  <TextView
-      android:id="@+id/title"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_marginBottom="80dp"
-      android:layout_marginEnd="32dp"
-      android:layout_marginLeft="32dp"
-      android:layout_marginRight="32dp"
-      android:layout_marginStart="32dp"
-      android:layout_marginTop="8dp"
-      android:paddingLeft="30dp"
-      android:paddingRight="30dp"
-      android:text="@string/map_need_location"
-      android:textAlignment="center"
-      android:textColor="@color/white"
-      android:textSize="24sp"
-      android:typeface="normal"
-      app:layout_constraintBottom_toBottomOf="@+id/mapHolder"
-      app:layout_constraintLeft_toLeftOf="@+id/mapHolder"
-      app:layout_constraintRight_toRightOf="@+id/mapHolder"
-      app:layout_constraintTop_toTopOf="@+id/topShade"
-      app:layout_constraintVertical_bias="0.256"/>
-
-  <ImageButton
-      android:id="@+id/animatedMarker"
-      android:layout_width="280dp"
-      android:layout_height="280dp"
-      android:layout_centerHorizontal="true"
-      android:layout_centerVertical="true"
-      android:layout_marginBottom="8dp"
-      android:layout_marginEnd="8dp"
-      android:layout_marginLeft="8dp"
-      android:layout_marginRight="8dp"
-      android:layout_marginStart="8dp"
-      android:layout_marginTop="8dp"
-      android:background="@drawable/animation_location"
-      android:visibility="visible"
-      app:layout_constraintBottom_toBottomOf="@+id/mapHolder"
-      app:layout_constraintHorizontal_bias="0.437"
-      app:layout_constraintLeft_toLeftOf="parent"
-      app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toTopOf="@+id/mapHolder"
-      app:layout_constraintVertical_bias="0.503"
-      tools:ignore="ContentDescription"/>
 
 </android.support.constraint.ConstraintLayout>
