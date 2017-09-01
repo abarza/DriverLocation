@@ -7,4 +7,10 @@
   <color name="transparent">#00FFFFFF</color>
   <color name="darkMap">#212121</color>
   <color name="darkMapTransparent">#00212121</color>
+
+  <color name="button_normal">#FFC107</color>
+  <color name="button_active">#e8b215</color>
+
+  <color name="button_not">#414141</color>
+  <color name="button_not_active">#000000</color>
 </resources>
