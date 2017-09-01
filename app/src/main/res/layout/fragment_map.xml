@@ -35,10 +35,10 @@
 
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/availableButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button2"
+        android:layout_above="@+id/unavailableButton"
         android:layout_centerInParent="true"
         android:background="@drawable/enable_button_selector"
         android:paddingBottom="5dp"
@@ -52,7 +52,7 @@
         android:textSize="16sp"/>
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/unavailableButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
