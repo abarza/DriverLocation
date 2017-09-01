@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <string name="map_need_location">Beetrack necesita tu ubicación para continuar</string>
+  <string name="map_not_available">No estoy disponible</string>
+  <string name="map_available">Estoy disponible para trabajar</string>
+</resources>

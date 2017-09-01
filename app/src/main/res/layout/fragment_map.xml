@@ -45,7 +45,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="5dp"
-        android:text="Estoy disponible para trabajar"
+        android:text="@string/map_available"
         android:textAlignment="center"
         android:textAllCaps="false"
         android:textColor="@color/white"
@@ -63,7 +63,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:paddingTop="5dp"
-        android:text="No estoy disponible"
+        android:text="@string/map_not_available"
         android:textAllCaps="false"
         android:textColor="@color/white"/>
 
@@ -97,7 +97,7 @@
       android:layout_marginTop="8dp"
       android:paddingLeft="30dp"
       android:paddingRight="30dp"
-      android:text="Beetrack necesita tu ubicación para continuar"
+      android:text="@string/map_need_location"
       android:textAlignment="center"
       android:textColor="@color/white"
       android:textSize="24sp"
