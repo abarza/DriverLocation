@@ -1,6 +1,5 @@
 package com.beetrack.test.abarza.driverlocation.location;
 
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 /**
@@ -9,7 +8,7 @@ import java.util.ArrayList;
 
 public class PlaceDummyData {
 
-  private static PlaceDummyData ourInstance = new PlaceDummyData();
+  public static PlaceDummyData ourInstance = new PlaceDummyData();
 
   public static PlaceDummyData getInstance() {
     return ourInstance;

@@ -23,7 +23,6 @@ public class LocationNotFoundFragment extends Fragment {
 
   private static final String TAG = LocationNotFoundFragment.class.getSimpleName();
   private static boolean HAS_PLACES = true;
-  private PlaceAdapter mPlaceAdapter;
   private RecyclerView mPlacesRecyclerView;
 
   public LocationNotFoundFragment() {
@@ -56,7 +55,6 @@ public class LocationNotFoundFragment extends Fragment {
     RelativeLayout bottomShade = (RelativeLayout) rootView.findViewById(R.id.bottomShade);
 
     if (HAS_PLACES) {
-
       // Paint the container background
       emptyContainer.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
       // Remove the bottom constraint to stick it to the top
@@ -70,9 +68,6 @@ public class LocationNotFoundFragment extends Fragment {
       availabilityButton.setVisibility(View.GONE);
       mPlacesRecyclerView.setVisibility(View.VISIBLE);
     } else {
-      /*RelativeLayout.LayoutParams bottomHeight = new RelativeLayout.LayoutParams(
-          ViewGroup.LayoutParams.WRAP_CONTENT, dpAsPixels(250));
-      bottomShade.setLayoutParams(bottomHeight);*/
       bottomShade.getLayoutParams().height = dpAsPixels(250);
     }
     return rootView;
@@ -84,14 +79,11 @@ public class LocationNotFoundFragment extends Fragment {
 
     if (HAS_PLACES) {
       // Get places from the dummy data set
-      mPlaceAdapter = new PlaceAdapter(PlaceDummyData.getInstance().getPlaces());
+      PlaceAdapter placeAdapter = new PlaceAdapter(PlaceDummyData.getInstance().getPlaces());
       // allows for optimizations if all items are of the same size
       mPlacesRecyclerView.setHasFixedSize(true);
-
-      mPlacesRecyclerView.setAdapter(mPlaceAdapter);
-
+      mPlacesRecyclerView.setAdapter(placeAdapter);
       LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
-
       // you can set the first visible item like this:
       layoutManager.scrollToPosition(0);
       mPlacesRecyclerView.setLayoutManager(layoutManager);

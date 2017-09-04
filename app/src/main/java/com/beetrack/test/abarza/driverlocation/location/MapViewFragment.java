@@ -69,7 +69,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
 
     if(!darkMode) {
       title.setTextColor(ContextCompat.getColor(getContext(), R.color.darkMap));
-      title.setShadowLayer(0.02f, -2, 2,   ContextCompat.getColor(getContext(), R.color.white));
+      title.setShadowLayer(0.02f, -2, 2, ContextCompat.getColor(getContext(), R.color.white));
       topShade.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gradient_light_map));
       bottomShade.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gradient_light_map_bottom));
     }
