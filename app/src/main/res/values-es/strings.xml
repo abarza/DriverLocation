@@ -5,4 +5,5 @@
   <string name="map_available">Estoy disponible para trabajar</string>
   <string name="empty_not_gps">Sin GPS activo</string>
   <string name="empty_content_not_gps">No pudimos determinar tu posición debido a que tienes el GPS desactivado</string>
+  <string name="empty_select_a_place">Selecciona en qué centro de distribución te encuentras para comenzar a trabajar</string>
 </resources>

@@ -1,16 +1,16 @@
 <android.support.constraint.ConstraintLayout
+    android:id="@+id/constraintHolder"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:id="@+id/constraintHolder"
     android:layout_height="match_parent"
-    tools:context="com.beetrack.test.abarza.driverlocation.LocationNotFoundFragment">
+    tools:context="com.beetrack.test.abarza.driverlocation.location.LocationNotFoundFragment">
 
   <RelativeLayout
       android:id="@+id/bottomShade"
       android:layout_width="0dp"
-      android:layout_height="200dp"
+      android:layout_height="150dp"
       android:layout_marginTop="32dp"
       android:background="@drawable/gradient_light_map_bottom"
       android:paddingBottom="25dp"
@@ -62,24 +62,22 @@
       android:id="@+id/emptyContainer"
       android:layout_width="0dp"
       android:layout_height="wrap_content"
-      android:layout_marginBottom="8dp"
       android:gravity="center"
       android:orientation="vertical"
       android:paddingBottom="20dp"
       android:paddingLeft="50dp"
       android:paddingRight="50dp"
       android:paddingTop="25dp"
-      app:layout_constraintBottom_toTopOf="@+id/bottomShade"
+      app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintHorizontal_bias="0.0"
       app:layout_constraintVertical_bias="0.681">
 
     <ImageView
         android:id="@+id/emptyIcon"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         app:srcCompat="@drawable/ic_notgps"
         tools:ignore="ContentDescription"/>
 
@@ -90,6 +88,7 @@
         android:layout_marginTop="8dp"
         android:text="@string/empty_not_gps"
         android:textSize="16sp"
+        android:textColor="@color/button_not_active"
         android:textStyle="bold"/>
 
     <TextView
@@ -99,5 +98,17 @@
         android:text="@string/empty_content_not_gps"
         android:textAlignment="center"/>
   </LinearLayout>
+
+  <android.support.v7.widget.RecyclerView
+      android:id="@+id/placesList"
+      android:layout_width="0dp"
+      android:layout_height="0dp"
+      android:layout_marginBottom="8dp"
+      android:layout_marginTop="8dp"
+      app:layout_constraintBottom_toTopOf="@+id/bottomShade"
+      app:layout_constraintHorizontal_bias="0.0"
+      app:layout_constraintLeft_toLeftOf="parent"
+      app:layout_constraintRight_toRightOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/emptyContainer"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,21 +1,24 @@
-package com.beetrack.test.abarza.driverlocation;
+package com.beetrack.test.abarza.driverlocation.location;
 
 
 import android.os.Bundle;
 import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.content.ContextCompat;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import com.beetrack.test.abarza.driverlocation.R;
 
 
 public class LocationNotFoundFragment extends Fragment {
 
   private static final String TAG = LocationNotFoundFragment.class.getSimpleName();
-  private static boolean HAS_PLACES = false;
+  private static boolean HAS_PLACES = true;
 
   public LocationNotFoundFragment() {
     // Required empty public constructor
@@ -41,13 +44,10 @@ public class LocationNotFoundFragment extends Fragment {
     // Inflate the layout for this fragment
     View rootView = inflater.inflate(R.layout.fragment_location_not_found, container, false);
     LinearLayout emptyContainer = (LinearLayout) rootView.findViewById(R.id.emptyContainer);
-    ConstraintLayout constraintHoleder = (ConstraintLayout) rootView.findViewById(R.id
-        .constraintHolder);
+    TextView emptyContent = (TextView) rootView.findViewById(R.id.emptyContent);
+    Button availabilityButton = (Button) rootView.findViewById(R.id.availableButton);
 
-    if (!HAS_PLACES) {
-
-      Log.d(TAG, "Sin places");
-    } else {
+    if (HAS_PLACES) {
 
       emptyContainer.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
 
@@ -56,8 +56,11 @@ public class LocationNotFoundFragment extends Fragment {
           .getLayoutParams();
       layoutParams.bottomToTop = -1;
       emptyContainer.setLayoutParams(layoutParams);
+      // Set text to make the user fist tap on a place to start their work
+      emptyContent.setText(R.string.empty_select_a_place);
+      // Hide the commit button (now will be the item in recyclerView)
+      availabilityButton.setVisibility(View.GONE);
 
-      Log.d(TAG, "Con places");
     }
 
     return rootView;

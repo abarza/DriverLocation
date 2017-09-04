@@ -1,11 +1,13 @@
-package com.beetrack.test.abarza.driverlocation;
+package com.beetrack.test.abarza.driverlocation.location;
 
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 
-public class HomeLocation extends AppCompatActivity {
+import com.beetrack.test.abarza.driverlocation.R;
+
+public class DriverLocation extends AppCompatActivity {
 
   private static boolean HAS_LOCATION_ENABLED = false;
   private static boolean HAS_PLACES = true;

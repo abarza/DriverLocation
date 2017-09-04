@@ -5,4 +5,5 @@
   <string name="map_not_available">I\'m not available</string>
   <string name="empty_content_not_gps">We can\'t find your location because your GPS is disabled</string>
   <string name="empty_not_gps">Disabled GPS</string>
+  <string name="empty_select_a_place">Select the warehouse where you are right now to start your workday</string>
 </resources>
