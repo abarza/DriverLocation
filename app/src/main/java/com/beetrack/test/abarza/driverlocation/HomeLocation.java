@@ -7,7 +7,7 @@ import android.support.v7.widget.Toolbar;
 
 public class HomeLocation extends AppCompatActivity {
 
-  private static boolean HAS_LOCATION_ENABLED = true;
+  private static boolean HAS_LOCATION_ENABLED = false;
   private static boolean HAS_PLACES = true;
 
   @Override

@@ -1,15 +1,21 @@
 package com.beetrack.test.abarza.driverlocation;
 
-import android.content.Context;
-import android.net.Uri;
+
 import android.os.Bundle;
+import android.support.constraint.ConstraintLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 
 public class LocationNotFoundFragment extends Fragment {
+
+  private static final String TAG = LocationNotFoundFragment.class.getSimpleName();
+  private static boolean HAS_PLACES = false;
 
   public LocationNotFoundFragment() {
     // Required empty public constructor
@@ -33,7 +39,29 @@ public class LocationNotFoundFragment extends Fragment {
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
                            Bundle savedInstanceState) {
     // Inflate the layout for this fragment
-    return inflater.inflate(R.layout.fragment_location_not_found, container, false);
+    View rootView = inflater.inflate(R.layout.fragment_location_not_found, container, false);
+    LinearLayout emptyContainer = (LinearLayout) rootView.findViewById(R.id.emptyContainer);
+    ConstraintLayout constraintHoleder = (ConstraintLayout) rootView.findViewById(R.id
+        .constraintHolder);
+
+    if (!HAS_PLACES) {
+
+      Log.d(TAG, "Sin places");
+    } else {
+
+      emptyContainer.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
+
+      // Remove the bottom constraint to stick it to the top
+      ConstraintLayout.LayoutParams layoutParams = (ConstraintLayout.LayoutParams) emptyContainer
+          .getLayoutParams();
+      layoutParams.bottomToTop = -1;
+      emptyContainer.setLayoutParams(layoutParams);
+
+      Log.d(TAG, "Con places");
+    }
+
+    return rootView;
+
   }
 
 

@@ -3,4 +3,6 @@
   <string name="map_need_location">Beetrack necesita tu ubicación para continuar</string>
   <string name="map_not_available">No estoy disponible</string>
   <string name="map_available">Estoy disponible para trabajar</string>
+  <string name="empty_not_gps">Sin GPS activo</string>
+  <string name="empty_content_not_gps">No pudimos determinar tu posición debido a que tienes el GPS desactivado</string>
 </resources>
