@@ -25,13 +25,13 @@
         android:name=".location.DriverLocation"
         android:configChanges="orientation"
         android:screenOrientation="portrait">
+    </activity>
+    <activity android:name=".SelectExamples">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
-
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
-    <activity android:name=".SelectExamples"/>
   </application>
 
 </manifest>

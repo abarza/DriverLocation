@@ -22,16 +22,18 @@ import com.beetrack.test.abarza.driverlocation.R;
 public class LocationNotFoundFragment extends Fragment {
 
   private static final String TAG = LocationNotFoundFragment.class.getSimpleName();
-  private static boolean HAS_PLACES = true;
+  private static final String HAS_PLACES = "hasPlaces";
   private RecyclerView mPlacesRecyclerView;
+  private Boolean mPlaces;
 
   public LocationNotFoundFragment() {
     // Required empty public constructor
   }
 
-  public static LocationNotFoundFragment newInstance() {
+  public static LocationNotFoundFragment newInstance(boolean hasPlaces) {
     LocationNotFoundFragment fragment = new LocationNotFoundFragment();
     Bundle args = new Bundle();
+    args.putBoolean(HAS_PLACES, hasPlaces);
     fragment.setArguments(args);
     return fragment;
   }
@@ -40,6 +42,7 @@ public class LocationNotFoundFragment extends Fragment {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     if (getArguments() != null) {
+      mPlaces = getArguments().getBoolean(HAS_PLACES);
     }
   }
 
@@ -54,7 +57,7 @@ public class LocationNotFoundFragment extends Fragment {
     mPlacesRecyclerView = (RecyclerView) rootView.findViewById(R.id.placesList);
     RelativeLayout bottomShade = (RelativeLayout) rootView.findViewById(R.id.bottomShade);
 
-    if (HAS_PLACES) {
+    if (mPlaces) {
       // Paint the container background
       emptyContainer.setBackgroundColor(ContextCompat.getColor(getContext(), R.color.white));
       // Remove the bottom constraint to stick it to the top
@@ -77,7 +80,7 @@ public class LocationNotFoundFragment extends Fragment {
   public void onViewCreated(View view, @Nullable Bundle bundle) {
     super.onViewCreated(view, bundle);
 
-    if (HAS_PLACES) {
+    if (mPlaces) {
       // Get places from the dummy data set
       PlaceAdapter placeAdapter = new PlaceAdapter(PlaceDummyData.getInstance().getPlaces());
       // allows for optimizations if all items are of the same size

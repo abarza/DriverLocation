@@ -25,16 +25,18 @@ import com.google.android.gms.maps.model.MapStyleOptions;
 
 public class MapViewFragment extends Fragment implements OnMapReadyCallback {
   private final static String TAG = MapViewFragment.class.getSimpleName();
+  private static final String DARK_MODE = "mDarkMode";
   private SupportMapFragment mSupportMapFragment;
-  private final Boolean darkMode = false;
+  private Boolean mDarkMode;
 
   public MapViewFragment() {
     // Required empty public constructor
   }
 
-  public static MapViewFragment newInstance() {
+  public static MapViewFragment newInstance(boolean darkMode) {
     MapViewFragment fragment = new MapViewFragment();
     Bundle args = new Bundle();
+    args.putBoolean(DARK_MODE, darkMode);
     fragment.setArguments(args);
     return fragment;
   }
@@ -43,6 +45,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
   public void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     if (getArguments() != null) {
+      mDarkMode = getArguments().getBoolean(DARK_MODE);
     }
 
     mSupportMapFragment = SupportMapFragment.newInstance();
@@ -67,7 +70,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     RelativeLayout bottomShade = (RelativeLayout) rootView.findViewById(R.id.bottomShade);
 
 
-    if(!darkMode) {
+    if(!mDarkMode) {
       title.setTextColor(ContextCompat.getColor(getContext(), R.color.darkMap));
       title.setShadowLayer(0.02f, -2, 2, ContextCompat.getColor(getContext(), R.color.white));
       topShade.setBackground(ContextCompat.getDrawable(getContext(), R.drawable.gradient_light_map));
@@ -88,7 +91,7 @@ public class MapViewFragment extends Fragment implements OnMapReadyCallback {
     LatLng userLocation = new LatLng(-33.424845, -70.615574);
 
 
-    if(darkMode) {
+    if(mDarkMode) {
       setMapStyle(map, R.raw.style_dark_json);
     } else {
       setMapStyle(map, R.raw.style_light_json);

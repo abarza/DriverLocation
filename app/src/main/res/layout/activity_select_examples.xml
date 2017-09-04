@@ -8,45 +8,45 @@
     tools:context="com.beetrack.test.abarza.driverlocation.SelectExamples">
 
   <Button
-      android:id="@+id/button2"
+      android:id="@+id/noGpsNoPlaces"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Sin GPS ni Places"
       app:layout_constraintHorizontal_bias="0.498"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/button5"
+      app:layout_constraintTop_toBottomOf="@+id/noGps"
       tools:layout_constraintRight_creator="1"
       tools:layout_constraintLeft_creator="1"
       app:layout_constraintBottom_toBottomOf="parent"/>
 
   <Button
-      android:id="@+id/button5"
+      android:id="@+id/noGps"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Sin GPS "
       app:layout_constraintHorizontal_bias="0.498"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/button4"
+      app:layout_constraintTop_toBottomOf="@+id/lightGps"
       tools:layout_constraintRight_creator="1"
       tools:layout_constraintLeft_creator="1"
-      app:layout_constraintBottom_toTopOf="@+id/button2"/>
+      app:layout_constraintBottom_toTopOf="@+id/noGpsNoPlaces"/>
 
   <Button
-      android:id="@+id/button4"
+      android:id="@+id/lightGps"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Con GPS Light"
       app:layout_constraintLeft_toLeftOf="parent"
       app:layout_constraintRight_toRightOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/button3"
+      app:layout_constraintTop_toBottomOf="@+id/blackGps"
       tools:layout_constraintRight_creator="1"
       tools:layout_constraintLeft_creator="1"
-      app:layout_constraintBottom_toTopOf="@+id/button5"/>
+      app:layout_constraintBottom_toTopOf="@+id/noGps"/>
 
   <Button
-      android:id="@+id/button3"
+      android:id="@+id/blackGps"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="Con GPS Dark"
@@ -55,5 +55,5 @@
       tools:layout_constraintRight_creator="1"
       tools:layout_constraintLeft_creator="1"
       app:layout_constraintTop_toTopOf="parent"
-      app:layout_constraintBottom_toTopOf="@+id/button4"/>
+      app:layout_constraintBottom_toTopOf="@+id/lightGps"/>
 </android.support.constraint.ConstraintLayout>

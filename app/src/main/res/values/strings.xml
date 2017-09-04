@@ -6,4 +6,7 @@
   <string name="empty_content_not_gps">We can\'t find your location because your GPS is disabled</string>
   <string name="empty_not_gps">Disabled GPS</string>
   <string name="empty_select_a_place">Select the warehouse where you are right now to start your workday</string>
+
+  <!-- TODO: Remove or change this placeholder text -->
+  <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
