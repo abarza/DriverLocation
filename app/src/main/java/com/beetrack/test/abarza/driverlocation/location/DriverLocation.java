@@ -10,7 +10,6 @@ import com.beetrack.test.abarza.driverlocation.R;
 public class DriverLocation extends AppCompatActivity {
 
   private static boolean HAS_LOCATION_ENABLED = false;
-  private static boolean HAS_PLACES = true;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {

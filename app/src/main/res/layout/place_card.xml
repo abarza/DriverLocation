@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    android:id="@+id/placeCard"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    card_view:cardBackgroundColor="@color/button_active"
+    card_view:cardCornerRadius="0dp"
+    card_view:cardElevation="3dp"
+    android:layout_marginLeft="15dp"
+    android:layout_marginRight="15dp"
+    card_view:cardUseCompatPadding="true">
+
+  <RelativeLayout
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:orientation="vertical"
+      android:padding="15dp">
+
+    <TextView
+        android:id="@+id/placeName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        tools:ignore="RtlHardcoded"
+        tools:text="Oficina Beetrack"/>
+
+    <TextView
+        android:id="@+id/placeAddress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/placeName"
+        android:layout_toLeftOf="@+id/iconRoute"
+        android:layout_marginRight="10dp"
+        tools:ignore="RtlHardcoded"
+        tools:text="Alonso de Córdova 5670, of 1504"/>
+
+
+    <ImageView
+        android:id="@+id/iconRoute"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerInParent="true"
+        app:srcCompat="@drawable/ic_arrow_forward"
+        tools:ignore="ContentDescription,RtlHardcoded"/>
+
+  </RelativeLayout>
+
+
+</android.support.v7.widget.CardView>
